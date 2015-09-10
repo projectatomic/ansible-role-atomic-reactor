@@ -1,10 +1,16 @@
-Role Name
-=========
+atomic-reactor
+==============
 
 This role obtains
 [atomic-reactor](https://github.com/projectatomic/atomic-reactor) docker image
 to be used in [OSBS (OpenShift build
 service)](https://github.com/projectatomic/osbs-client).
+
+This role is part of
+[ansible-osbs](https://github.com/projectatomic/ansible-osbs/) playbook for
+deploying OpenShift build service. Please refer to that github repository for
+[documentation](https://github.com/projectatomic/ansible-osbs/blob/master/README.md)
+and [issue tracker](https://github.com/projectatomic/ansible-osbs/issues).
 
 Role Variables
 --------------
@@ -67,4 +73,4 @@ BSD
 Author Information
 ------------------
 
-Martin Milata <mmilata@redhat.com>
+Martin Milata &lt;mmilata@redhat.com&gt;
