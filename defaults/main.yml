@@ -5,6 +5,7 @@ atomic_reactor_tag: buildroot
 # Method to obtain atomic-reactor image, currently supported are:
 # pull - pull the image from a registry
 # git  - build the image from git repository
+# rpm  - build the image from the local bundled rpm sources
 atomic_reactor_source: pull
 
 # Configuration for atomic_reactor_source == pull
@@ -24,3 +25,6 @@ atomic_reactor_git:
   git_branch: master
   git_subdir: ""
   git_local_path: "{{ ansible_env.HOME }}/atomic-reactor-buildroot"
+
+atomic_reactor_rpm:
+  buildroot_cmd: atomic-reactor create-build-image --reactor-tarball-path /usr/share/atomic-reactor/atomic-reactor.tar.gz /usr/share/atomic-reactor/images/dockerhost-builder buildroot

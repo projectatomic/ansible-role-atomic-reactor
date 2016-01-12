@@ -4,3 +4,6 @@
 
 - include: source_git.yml
   when: atomic_reactor_source == 'git'
+
+- include: source_rpm.yml
+  when: atomic_reactor_source == 'rpm'
