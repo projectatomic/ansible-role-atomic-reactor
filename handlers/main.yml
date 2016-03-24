@@ -1,3 +1,6 @@
 ---
 - name: rebuild buildroot
   shell: "{{ atomic_reactor_rpm.buildroot_cmd }}"
+
+- name: tag pulled image
+  command: docker tag -f {{ atomic_reactor_pull.registry }}/{{ atomic_reactor_pull.image }} {{ atomic_reactor_tag }}
