@@ -1,6 +1,8 @@
 ---
 - name: pull base image
   command: docker pull {{ atomic_reactor_git.base_registry }}/{{ atomic_reactor_git.base_image }}
+  register: pull_base
+  changed_when: "'Status: Image is up to date for' not in pull_base.stdout"
   when: atomic_reactor_git.base_image is defined
 
 - name: tag base image
