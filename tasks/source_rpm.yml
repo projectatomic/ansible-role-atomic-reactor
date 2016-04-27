@@ -1,5 +1,5 @@
 ---
 - name: install atomic-reactor package locally
-  action: "{{ ansible_pkg_mgr }} name=atomic-reactor state=latest"
+  action: "{{ ansible_pkg_mgr }} name=atomic-reactor state={{ 'latest' if atomic_reactor_rpm.update else 'present' }}"
   notify:
   - rebuild buildroot
