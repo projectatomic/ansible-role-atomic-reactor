@@ -49,6 +49,12 @@ by setting the `atomic_reactor_tag` variable.
 
     atomic_reactor_tag: buildroot
 
+You can push the resulting image to a docker registry, such as OpenShift
+internal registry. The registry, including namespace, can be set using the
+`atomic_reactor_push_to` variable.
+
+    atomic_reactor_push_to: 172.30.35.82:5000/default
+
 Dependencies
 ------------
 

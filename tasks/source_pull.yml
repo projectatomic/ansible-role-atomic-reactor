@@ -3,4 +3,7 @@
   command: docker pull {{ atomic_reactor_pull.registry }}/{{ atomic_reactor_pull.image }}
   register: pull_image
   changed_when: "'Status: Image is up to date for' not in pull_image.stdout"
-  notify: tag pulled image
+  notify:
+  - tag pulled image
+  - tag for internal registry
+  - push to internal registry

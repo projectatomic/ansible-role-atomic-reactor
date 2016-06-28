@@ -26,3 +26,6 @@
 - name: build atomic-reactor image
   command: docker build --no-cache=true --tag={{ atomic_reactor_tag }} {{ atomic_reactor_git.git_local_path }}/{{ atomic_reactor_git.git_subdir }}
   when: dockerfile_git_repo.changed or image_present.changed
+  notify:
+  - tag for internal registry
+  - push to internal registry

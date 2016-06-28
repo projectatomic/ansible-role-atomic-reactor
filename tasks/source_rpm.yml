@@ -3,3 +3,5 @@
   action: "{{ ansible_pkg_mgr }} name=atomic-reactor state={{ 'latest' if atomic_reactor_rpm.update else 'present' }}"
   notify:
   - rebuild buildroot
+  - tag for internal registry
+  - push to internal registry
