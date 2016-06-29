@@ -7,8 +7,8 @@
 
 - name: tag for internal registry
   command: docker tag -f {{ atomic_reactor_tag }} {{ atomic_reactor_push_to }}/{{ atomic_reactor_tag }}
-  when: atomic_reactor_push_to is defined and atomic_reactor_push_to
+  when: atomic_reactor_push_to
 
 - name: push to internal registry
   command: docker push {{ atomic_reactor_push_to }}/{{ atomic_reactor_tag }}
-  when: atomic_reactor_push_to is defined and atomic_reactor_push_to
+  when: atomic_reactor_push_to
