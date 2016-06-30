@@ -33,4 +33,4 @@ atomic_reactor_rpm:
 # Registry (including port and namespace) to push the atomic-reactor once it
 # has been pulled/built locally. No push is performed when the variable is
 # empty. Useful for pushing to OpenShift's internal registry.
-atomic_reactor_push_to: ""
+atomic_reactor_push_to: []

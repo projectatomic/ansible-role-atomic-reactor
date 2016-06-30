@@ -6,9 +6,9 @@
   command: docker tag -f {{ atomic_reactor_pull.registry }}/{{ atomic_reactor_pull.image }} {{ atomic_reactor_tag }}
 
 - name: tag for internal registry
-  command: docker tag -f {{ atomic_reactor_tag }} {{ atomic_reactor_push_to }}/{{ atomic_reactor_tag }}
-  when: atomic_reactor_push_to
+  command: docker tag -f {{ atomic_reactor_tag }} {{ item }}
+  with_items: "{{ atomic_reactor_push_to }}"
 
 - name: push to internal registry
-  command: docker push {{ atomic_reactor_push_to }}/{{ atomic_reactor_tag }}
-  when: atomic_reactor_push_to
+  command: docker push {{ item }}
+  with_items: "{{ atomic_reactor_push_to }}"
