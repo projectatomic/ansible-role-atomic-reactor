@@ -20,42 +20,52 @@ currently two methods to obtain the image, `pull` and `git`. The `pull` method
 simply pulls the image from a given registry. The `git` method builds the image
 by running `docker build` on given git repository.
 
-    atomic_reactor_source: pull
+```
+atomic_reactor_source: pull
+```
 
 When `atomic_reactor_source` is set to `pull`, you need to provide
 `atomic_reactor_pull` dictionary such as the following:
 
-    atomic_reactor_pull:
-      registry: registry.hub.docker.com
-      image: slavek/atomic-reactor:latest
+```
+atomic_reactor_pull:
+  registry: registry.hub.docker.com
+  image: slavek/atomic-reactor:latest
+```
 
 When `atomic_reactor_source` is set to `git`, you need to provide
 `atomic_reactor_git` dictionary such as the following:
 
-    atomic_reactor_git:
-      # base image source to be pulled (optional)
-      base_registry: registry.hub.docker.com
-      base_image: library/fedora:latest
-      # allow retagging the base image to match FROM in Dockerfile (optional)
-      base_image_retag: fedora:latest
-      # Dockerfile source
-      git_url: https://github.com/projectatomic/atomic-reactor.git
-      git_branch: master
-      git_subdir: ""
-      git_local_path: "{{ ansible_env.HOME }}/atomic-reactor-buildroot"
+```
+atomic_reactor_git:
+  # base image source to be pulled (optional)
+  base_registry: registry.hub.docker.com
+  base_image: library/fedora:latest
+  # allow retagging the base image to match FROM in Dockerfile (optional)
+  base_image_retag: fedora:latest
+  # Dockerfile source
+  git_url: https://github.com/projectatomic/atomic-reactor.git
+  git_branch: master
+  git_subdir: ""
+  git_local_path: "{{ ansible_env.HOME }}/atomic-reactor-buildroot"
+```
 
 OSBS expects the build image to be named `buildroot`. This name can be changed
 by setting the `atomic_reactor_tag` variable.
 
-    atomic_reactor_tag: buildroot
+```
+atomic_reactor_tag: buildroot
+```
 
 You can push the resulting image to a docker registry, such as OpenShift
 internal registry. List of push specifications can be set using the
 `atomic_reactor_push_to` variable.
 
-    atomic_reactor_push_to:
-    - 172.30.35.82:5000/default/buildroot:latest
-    - 172.30.35.82:5000/default/buildroot:{{ version }}
+```
+atomic_reactor_push_to:
+- 172.30.35.82:5000/default/buildroot:latest
+- 172.30.35.82:5000/default/buildroot:{{ version }}
+```
 
 Dependencies
 ------------
@@ -69,9 +79,11 @@ In default configuration the role pulls the image from
 [slavek/atomic-reactor](https://hub.docker.com/r/slavek/atomic-reactor/)
 repository on docker hub.
 
-    - hosts: builders
-      roles:
-         - atomic-reactor
+```
+- hosts: builders
+  roles:
+  - atomic-reactor
+```
 
 License
 -------
